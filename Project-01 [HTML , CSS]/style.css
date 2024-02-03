@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 html, body{
@@ -11,7 +11,7 @@ html, body{
 }
 
 #main{
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     background-color: rgb(236, 243, 249);
 }
@@ -54,7 +54,7 @@ button{
     border-radius: 2rem;
 }
 
-i{
+.ri-menu-line{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +68,7 @@ i{
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 75%;
+    height: 80%;
     
 }
 
@@ -86,19 +86,42 @@ img{
     border-radius: 15px;
 }
 #img1{
-    rotate: 60deg;
+    rotate: -14deg;
 }
 #img2{
-    rotate: 50deg;
+    rotate: -10deg;
 }
 #img3{
-    rotate: 40deg;
+    rotate: -4deg;
 }
 #img4{
-    rotate: 30deg;
-}
-#img5{
-    rotate: 20deg;
+    rotate: 1deg;
 }
 
+.bottom-text{
+    display:flex;
+    align-items: center;
+    height: 11.2%;
+    width: 100vw;
+}
 
+.bottom-left{
+    position: absolute;
+    left: 20px;
+    bottom: 60px;
+}
+
+.bottom-right{
+    position: absolute;
+    right: 20px;
+    bottom: 60px;
+}
+
+.s-media{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    height: 40px;
+    width: auto;
+}
