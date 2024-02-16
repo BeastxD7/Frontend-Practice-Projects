@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
 html,body{
@@ -11,111 +12,194 @@ html,body{
 }
 
 #main{
-    height: 100%;
-    width: 100%;
+    height: fit-content;
+    width: 100vw;
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);    
-    display: flex;
-    justify-content: center;
 }
 
-#navbar{
+.navbar{ 
     display: flex;
-    justify-content: space-around;
-    width: 70vw;
-    height: 5rem;
+    justify-content:space-around; 
+    width: 100%;
+    height: 70px;
+    /* border: 2px solid black; */
 }
 
-#nav-left{
-    /* border:2px solid orange; */
+.nav-left{
+    margin-left: 10px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.nav-left img{
+    height: 4rem;
+    width: 4rem;
+}
+
+.nav-center{
+    display: flex;
+    gap: 0.9rem;
+    /* border: 2px solid red; */
     align-items: center;
 }
 
-#logo{
-    height: 90%;
-}
-
-#logo-text{
-    font-size: 1.5rem;
-}
-
-#nav-right{
-    /* border:2px solid orange; */
+.nav-right{
+    margin-right: 10px;
     display: flex;
     align-items: center;
+    /* border: 2px solid red; */
 }
 
-#nav-center{
-    /* border:2px solid orange; */
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.nav-center a{
+    color: rgba(21, 23, 23, 0.749);
+    font-size: 1.10rem;
+    font-weight: 600;
 }
 
-#nav-center a{
-    text-decoration: none;
-    color: #171718cb;
-    font-weight:bold;
+.nav-center a:hover{
+    color: rgba(79, 47, 195, 0.885);
 }
 
-#nav-center a:hover{
-    color: rgba(99, 99, 167, 0.842);
-}
-
-#nav-right button{
-    border: none;
+.btn{
+    background-color: rgb(50, 36, 240);
     padding: 10px 20px;
-    background: rgb(76, 76, 251);
-    color: white;
-    font-weight: bold;
     border-radius: 5px;
-}
-
-#nav-right button:hover{
-    cursor: pointer;
+    color: white;
 }
 
 .menu{
     display: none;
 }
 
-@media screen and (max-width: 950px){
-    #navbar{
-        /* border: 2px solid black; */
-        display: flex;
-        align-items: center;
-        padding: 10px 30px;
-    }
+@media screen and (max-width:740px) {
 
-    #nav-center{
-    display: none;
-    }
-
-    #nav-right{
+    .nav-center{
         display: none;
     }
 
-    #navbar{
-        display: flex;
-        justify-content: space-between;
-        width: 100vw;
-    }
-
-    #nav-left{
-        height: 50%;
-    }
-
-    #logo{
-        height: 100%;
+    .nav-right{
+        display: none;
     }
     
     .menu{
+        display: flex;
+        height: 100%;
+        width: 5rem;
+        /* border: 2px solid red; */
         align-items: center;
         justify-content: center;
-        display: block;
-        font-size: 1.5rem;
-        /* border: 2px solid black; */
+    }
+
+    .menu i{
+        font-size: 1.3rem;
+    }
+
+    .nav-left img{
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .logo-text{
+        font-size:1.5rem;
+    }
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 20px;
+}
+
+.hero-right img{
+    object-fit: cover;
+    border-radius: 17px;
+    height: 20rem;
+    width: 15rem;
+    /* border: 2px solid rgb(254, 20, 157) */
+}
+
+.hero-label{
+    color: #2f61dd;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.hero-title{
+    line-height: 2.8rem;
+    font-size: 2.4rem;
+
+}
+
+.hero-description{
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.hero-right{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+
+@media screen and (min-width:1064px) {
+
+    #main{
+        height: 100%;
+    }
+
+    .hero{
+        display: flex;
+        flex-direction: row;
+        /* border: 2px solid red; */
+    }
+    
+    .hero-left{
+        width: 50%;
+        /* border: 2px solid rgb(9, 39, 105); */
+        padding-left: 11rem;
+        padding-top: 7rem;
+        padding-right: 8rem;
+    }
+
+
+    
+    .hero-right{
+    
+        width: 50%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        /* border: 2px solid rgb(138, 228, 21) */
+    }
+    
+    .hero-right img{
+        object-fit: cover;
+        border-radius: 17px;
+        height: 28rem;
+        width: 26rem;
+        /* border: 2px solid rgb(254, 20, 157) */
+        
+    
+    }
+    
+    .hero-label{
+        color: #2f61dd;
+        font-weight: 700;
+    }
+    
+    .hero-title{
+        font-size: 3.5rem;
+        line-height: 4.5rem;
+    }
+    
+    .hero-description{
+        padding-top: 3rem;
     }
 }
