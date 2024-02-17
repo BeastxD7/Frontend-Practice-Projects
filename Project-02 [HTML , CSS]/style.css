@@ -16,7 +16,6 @@ html,body{
 #main{
     height: fit-content;
     width: 100vw;
-
 }
 
 .navbar{ 
@@ -170,6 +169,7 @@ html,body{
 }
 
 .company-grid{
+    box-shadow: 17px 38px 32px -3px rgba(0,0,0,0.1);
     color: aliceblue;
     width: fit-content;
     display: grid;
