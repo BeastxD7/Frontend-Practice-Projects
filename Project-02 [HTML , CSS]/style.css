@@ -214,13 +214,13 @@ span{
 
 .card-container{display: flex;
     justify-content: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     padding: 0.5rem 6rem;
 }
 
 .card-grid{
     display: grid;
-    border: 2px solid rgba(52, 52, 52, 0.604);
+    /* border: 2px solid rgba(52, 52, 52, 0.604); */
     grid-gap: 1.5rem;
     grid-template-columns: repeat(3,1fr);
     padding: 2rem;
@@ -354,7 +354,7 @@ span{
 
 .card-grid{
     display: grid;
-    border: 2px solid rgba(52, 52, 52, 0.604);
+    /* border: 2px solid rgba(52, 52, 52, 0.604); */
     grid-gap: 1rem;
     grid-template-columns: repeat(2,1fr);   
 }
@@ -447,7 +447,7 @@ span{
 
     .card-grid{
         display: grid;
-        border: 2px solid rgba(52, 52, 52, 0.604);
+        /* border: 2px solid rgba(52, 52, 52, 0.604); */
         grid-gap: 2rem;
         grid-template-columns: repeat(1,1fr);   
     }
