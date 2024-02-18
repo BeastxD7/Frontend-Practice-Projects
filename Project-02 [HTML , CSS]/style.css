@@ -94,6 +94,10 @@ a{
 
 /* -------------------------------- Hero Section -------------------------------------------*/
 
+span{
+    color: #5101ff;
+}
+
 .hero-section{
     display: flex;
     height:fit-content;
@@ -160,7 +164,7 @@ a{
 }
 
 .trusted h2{
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .company-wrapper{
@@ -187,7 +191,79 @@ a{
     width: 3rem;
 }
 
+/* -------------------------------- Cards Section -------------------------------------------*/
 
+.card-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+    /* border: 2px solid red; */
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.card-main p{
+    font-size: 1.2rem;
+    padding: 0.5rem 6rem;
+    text-align: center;
+    /* border: 2px solid red; */
+
+}
+
+.card-container{display: flex;
+    justify-content: center;
+    border: 2px solid red;
+    padding: 0.5rem 6rem;
+}
+
+.card-grid{
+    display: grid;
+    border: 2px solid rgba(52, 52, 52, 0.604);
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(3,1fr);
+    padding: 2rem;
+}
+
+.card{
+    background-color: #2e2e2e3e;
+    border-radius: 1rem;
+    padding: 1.5rem 1.5rem;
+    width: 20rem;
+    color: white;
+    box-shadow: 17px 38px 32px -3px rgba(0,0,0,0.1);
+}
+
+.card-img{
+    background-color: aliceblue;
+    width: fit-content;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card img{
+    height: 3rem;
+}
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-img-center{
+    display: flex;
+    justify-content: center;
+}
+
+.card p{
+    font-size: 0.8rem;
+}
 /* -------------------------------- tablet [Responsive] -------------------------------------------*/
 
 
@@ -261,9 +337,34 @@ a{
     position: relative;
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    height: 100%;
+    height: fit-content;
     width: 100%;
     /* border: 2px solid greenyellow; */
+}
+
+.card-main{
+    text-align: left;
+}
+
+.card-main p {
+    padding: 0.5rem 4rem;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.card-grid{
+    display: grid;
+    border: 2px solid rgba(52, 52, 52, 0.604);
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2,1fr);   
+}
+
+.card{
+    background-color: #2e2e2e3e;
+    border-radius: 1rem;
+    padding: 1rem 1rem;
+    width: 20rem;
+    color: white;
 }
 
 }
@@ -320,7 +421,6 @@ a{
     height: 100%;
     }
 
-
     .company-container{
     box-shadow: 17px 38px 32px -3px rgba(0,0,0,0.1);
     color: aliceblue;
@@ -333,5 +433,22 @@ a{
     /* border: 2px solid rgb(0, 0, 0); */
     border-radius: 10px;
     margin-bottom: 1.5re
+    }
+
+    .card-main h1{
+        font-size: 1.5rem;
+    }
+
+    .card-main p {
+        padding: 0.5rem 2rem;
+        text-align: center;
+        font-size: 0.95rem;
+    }    
+
+    .card-grid{
+        display: grid;
+        border: 2px solid rgba(52, 52, 52, 0.604);
+        grid-gap: 2rem;
+        grid-template-columns: repeat(1,1fr);   
     }
 }
