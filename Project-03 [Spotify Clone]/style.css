@@ -308,7 +308,7 @@ height: fit-content;
     position: relative;
     padding: 1.5rem 1rem;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     /* border: 2px solid blue; */
@@ -330,11 +330,11 @@ height: fit-content;
 
 .p-title{
     font-size: 1.13rem;
-    text-align: center;
+    text-align: start;
 }
 
 .p-desc{
-    text-align: center;
+    text-align: start;
     font-size: 0.8rem;
     font-weight: 300;
 }
