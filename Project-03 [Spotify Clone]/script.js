@@ -17,7 +17,6 @@ function addCardToPlaylist(title, desc, imageSrc) {
 }
 
 
-
 async function getSongs() {
     let a = await fetch("http://127.0.0.1:5500/songs/"); 
     let response = await a.text(); 
@@ -30,40 +29,32 @@ async function getSongs() {
 
     for (let i = 3; i < as.length; i++) {
         let songtitle = as[i].innerText;
-        // console.log(songtitle)
+    
         songtitle = songtitle.split(".mp3")[0]
+        // console.log(songtitle)
         let songs = document.querySelector("#songs");
         songs.innerHTML += ` <div  class="card" style="list-style: none;">
         <li > ${songtitle}</li>
         </div>`  
     }
-
-    // for(i=3;i<as.length;i++){
-    //     console.log(as[i].innerText.split(".mp3")[0]);  
-    // }
+  playmusic()
 }
 getSongs()
 
-// let songtitle = "srinivas";
+addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
 
 
-addCardToPlaylist("Test", "This is a example description.This is to increase the line ", "https://png.pngtree.com/png-vector/20190408/ourmid/pngtree-vector-music-illustration-with-wing-and-speaker-png-image_923833.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sphere-glass-the-mixtape-cd-cover-design-template-73ab5b3d9b81f442cb2288630ab63acf.jpg?ts=1602178819")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
-addCardToPlaylist("Test", "This is a example description.This is to increase the line ", "https://png.pngtree.com/png-vector/20190408/ourmid/pngtree-vector-music-illustration-with-wing-and-speaker-png-image_923833.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sphere-glass-the-mixtape-cd-cover-design-template-73ab5b3d9b81f442cb2288630ab63acf.jpg?ts=1602178819")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
-addCardToPlaylist("Test", "This is a example description.This is to increase the line ", "https://png.pngtree.com/png-vector/20190408/ourmid/pngtree-vector-music-illustration-with-wing-and-speaker-png-image_923833.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sphere-glass-the-mixtape-cd-cover-design-template-73ab5b3d9b81f442cb2288630ab63acf.jpg?ts=1602178819")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
-addCardToPlaylist("Test", "This is a example description.This is to increase the line ", "https://png.pngtree.com/png-vector/20190408/ourmid/pngtree-vector-music-illustration-with-wing-and-speaker-png-image_923833.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sphere-glass-the-mixtape-cd-cover-design-template-73ab5b3d9b81f442cb2288630ab63acf.jpg?ts=1602178819")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
-addCardToPlaylist("Test", "This is a example description.This is to increase the line ", "https://png.pngtree.com/png-vector/20190408/ourmid/pngtree-vector-music-illustration-with-wing-and-speaker-png-image_923833.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/sphere-glass-the-mixtape-cd-cover-design-template-73ab5b3d9b81f442cb2288630ab63acf.jpg?ts=1602178819")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
-addCardToPlaylist("Test", "This is a example description. ", "https://img.freepik.com/free-vector/realistic-music-record-label-disk-mockup_1017-33906.jpg")
+let currsong = new Audio()
+
+url = `https://spotify-clone-rust-six.vercel.app/songs/`
+
+function playmusic() {
+    let track = document.querySelectorAll(".card li");
+    track.forEach(element => {
+        // console.log(element.innerText);
+        element.addEventListener("click", function() {
+            console.log("clicked");
+            currsong.src = `https://spotify-clone-rust-six.vercel.app/songs/${element.innerText}.mp3`;
+            currsong.play()
+    });
+})}

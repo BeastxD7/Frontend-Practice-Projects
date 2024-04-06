@@ -172,6 +172,11 @@ ul{
     border-radius: 10px;
 }
 
+.card li{
+    
+cursor: pointer;
+}
+
 .card-desc{
     color: #dbdbdb;
     font-size: 14px;
@@ -357,6 +362,8 @@ height: fit-content;
 
 .playbar{
     display: flex;
+    gap: 1rem;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -380,4 +387,24 @@ height: fit-content;
     height: 1.5rem;
     cursor: pointer;
     fill: aliceblue;
+}
+
+.seekbar{
+    position: relative;
+    border-radius: 16px;
+    height: 2px;
+    width: 90%;
+    background-color: #b3b3b3;
+    border: 2px solid #b3b3b3;
+}
+
+.circle{
+    left: 0%;
+    transition: left 1s ;
+    position: absolute;
+    top: -6px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: aliceblue;
 }
