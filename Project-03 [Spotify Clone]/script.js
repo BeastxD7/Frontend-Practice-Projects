@@ -21,23 +21,26 @@ function addCardToPlaylist(title, desc, imageSrc) {
 async function getSongs() {
     let a = await fetch("http://127.0.0.1:5500/songs/"); 
     let response = await a.text(); 
-    console.log(response); 
+    // console.log(response); 
 
     let div = document.createElement("div");
     div.innerHTML = response;
     let as = div.getElementsByTagName('a')
-    console.log(as)
+    // console.log(as)
 
     for (let i = 3; i < as.length; i++) {
         let songtitle = as[i].innerText;
-        console.log(songtitle)
+        // console.log(songtitle)
         songtitle = songtitle.split(".mp3")[0]
         let songs = document.querySelector("#songs");
         songs.innerHTML += ` <div  class="card" style="list-style: none;">
         <li > ${songtitle}</li>
-        </div>`    
-        
+        </div>`  
     }
+
+    // for(i=3;i<as.length;i++){
+    //     console.log(as[i].innerText.split(".mp3")[0]);  
+    // }
 }
 getSongs()
 
