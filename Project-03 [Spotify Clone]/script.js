@@ -54,7 +54,7 @@ function playmusic() {
         // console.log(element.innerText);
         element.addEventListener("click", function() {
             console.log("clicked");
-            currsong.src = `https://spotify-clone-rust-six.vercel.app/songs/${element.innerText}.mp3`;
+            currsong.src = `http://127.0.0.1:5500/songs/${element.innerText}.mp3`;
             currsong.play()
     });
 })}
