@@ -1,6 +1,15 @@
 import Image from "next/image";
 
-const UserProfile = ({ user }: { user: any }) => {
+interface User {
+  name: string;
+  email: string;
+  phone: string;
+  company: {
+    name: string;
+  };
+}
+
+const UserProfile = ({ user }: { user: User }) => {
   return (
     <div className="bg-gradient-to-t justify-center from-fuchsia-700 to-purple-900 w-1/2 m-auto flex flex-col gap-4 items-center rounded-md min-h-[45rem]">
       <div className="w-44 h-44 rounded-full overflow-hidden shadow-black shadow-2xl flex items-center justify-center bg-blue-200/10">
