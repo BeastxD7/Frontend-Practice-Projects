@@ -1,7 +1,7 @@
 "use client"
 import React, { useOptimistic, useRef, useState } from 'react'
 
-const page = () => {
+const Page = () => {
     const formRef = useRef<HTMLFormElement>(null)
     const [messages, setMessages] = useState<{ text: string; sending: boolean; id: number }[]>([]);
 
@@ -67,4 +67,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

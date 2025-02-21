@@ -2,6 +2,7 @@ import UserProfile from '@/Components/UserProfile'
 import UserProfileSkeleton from '@/Components/UserProfileSkeleton'
 import React, { Suspense } from 'react'
 import axios from 'axios'
+export const dynamic = "force-dynamic";
 
 interface IUserProfile {
     name:string,
@@ -12,11 +13,11 @@ interface IUserProfile {
 }
 
 const getProfileInfo = async ()=> {
-  const response = await axios.get<IUserProfile>("http://localhost:3000/api/profile");
+  const response = await axios.get<IUserProfile>("https://tasksbybeast.vercel.app/api/profile");
   return response.data
 }
 
-const page = async() => {
+const Page = async() => {
 
   const userInfo:IUserProfile = await getProfileInfo() 
   console.log(userInfo);
@@ -31,4 +32,4 @@ const page = async() => {
   )
 }
 
-export default page
+export default Page
