@@ -36,10 +36,6 @@ const categories = Array.from(new Set(products.map(product => product.category))
         </div>
       </div>
 
-
-
-
-
       <div className='w-full s-full  gap-8 flex flex-wrap justify-center py-8'>
           {products&&products.map((product:IProductCard) => {
             return <ProductCard key={product.id} title={product.title}  description={product.description}   price={product.price}   category={product.category}  thumbnail={product.thumbnail}  />
