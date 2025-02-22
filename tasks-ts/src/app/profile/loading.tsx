@@ -1,6 +1,4 @@
-import UserProfile from '@/Components/UserProfile'
 import UserProfileSkeleton from '@/Components/UserProfileSkeleton'
-import React, { Suspense } from 'react'
 import axios from 'axios'
 export const dynamic = "force-dynamic";
 
