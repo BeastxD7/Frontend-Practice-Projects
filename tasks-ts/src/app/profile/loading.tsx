@@ -1,6 +1,6 @@
 import UserProfile from '@/Components/UserProfile'
-// import UserProfileSkeleton from '@/Components/UserProfileSkeleton'
-// import React, { Suspense } from 'react'
+import UserProfileSkeleton from '@/Components/UserProfileSkeleton'
+import React, { Suspense } from 'react'
 import axios from 'axios'
 export const dynamic = "force-dynamic";
 
@@ -25,9 +25,7 @@ const Page = async() => {
 
   return (
     <div className='bg-black px-4 text-white h-screen w-screen flex justify-center items-center'>
-        {/* <Suspense fallback={<UserProfileSkeleton />}> */}
-            <UserProfile name={userInfo.name} email={userInfo.email} bio={userInfo.bio} website={userInfo.website} avatar={userInfo.avatar} />
-        {/* </Suspense> */}
+        <UserProfileSkeleton/>
     </div>
   )
 }
