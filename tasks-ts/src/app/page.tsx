@@ -15,6 +15,10 @@ const Page = () => {
 
   const handleTask3 = ()=>{
     router.push("/todo");
+  }
+
+  const handleTask4 = ()=>{
+    router.push("/products");
 
   }
 
@@ -40,6 +44,13 @@ const Page = () => {
         className="bg-blue-600 py-2 px-4 rounded-lg cursor-pointer"
       >
         Task 3
+      </div>
+
+      <div
+        onClick={handleTask4}
+        className="bg-blue-600 py-2 px-4 rounded-lg cursor-pointer"
+      >
+        Task 4
       </div>
     </div>
   );
