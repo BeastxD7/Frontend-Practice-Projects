@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { cache } from "react";
 
-
-export const fetchUserProfile = cache(async (): Promise<{ data: any; timestamp: string; error?: string }> => {
+//@ts-ignore
+export const fetchUserProfile = cache(async (): Promise<{ data; timestamp: string; error?: string }> => {
   try {
     console.log("Fetching new user profile...");
     const response = await axios.get( "https://tasksbybeast.vercel.app/api/profile"); 
