@@ -1,14 +1,27 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { cache } from "react";
 
-//@ts-ignore
-export const fetchUserProfile = cache(async (): Promise<{ data; timestamp: string; error?: string }> => {
+//  type for user profile data
+type UserProfileData = {
+  name?: string;
+  email?: string;
+};
+
+//  type for the fetch response
+type FetchResponse = {
+  data: UserProfileData | null;
+  timestamp: string;
+  error?: string;
+};
+
+// Cached function to fetch user profile
+export const fetchUserProfile = cache(async (): Promise<FetchResponse> => {
   try {
     console.log("Fetching new user profile...");
-    const response = await axios.get( "https://tasksbybeast.vercel.app/api/profile"); 
-    return { data: response.data, timestamp: new Date().toLocaleTimeString() }; // Store timestamp
+    const response = await axios.get<UserProfileData>("http://tasksbybeast.vercel.app/api/profile");
+    return { data: response.data, timestamp: new Date().toLocaleTimeString() };
   } catch (error) {
     console.error("Error fetching profile:", error);
     return { data: null, error: "Failed to fetch profile", timestamp: new Date().toLocaleTimeString() };
@@ -16,9 +29,8 @@ export const fetchUserProfile = cache(async (): Promise<{ data; timestamp: strin
 });
 
 const UserProfile = () => {
-  const [profile, setProfile] = useState<{ data?: { name?: string; email?: string }; timestamp?: string; error?: string }>({});
+  const [profile, setProfile] = useState<FetchResponse>({ data: null, timestamp: "", error: "" });
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     fetchUserProfile().then((result) => {
@@ -27,15 +39,12 @@ const UserProfile = () => {
     });
   }, []);
 
-
   const handleManualRefresh = async () => {
     setLoading(true);
     const newData = await fetchUserProfile(); // Fetch fresh data
     setProfile(newData); // Update state with new data
     setLoading(false);
   };
-
-  
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white p-6">
@@ -49,8 +58,12 @@ const UserProfile = () => {
         ) : (
           <>
             <div className="mb-4">
-              <p className="text-lg"><strong>Name:</strong> {profile.data?.name}</p>
-              <p className="text-lg"><strong>Email:</strong> {profile.data?.email}</p>
+              <p className="text-lg">
+                <strong>Name:</strong> {profile.data?.name || "N/A"}
+              </p>
+              <p className="text-lg">
+                <strong>Email:</strong> {profile.data?.email || "N/A"}
+              </p>
               <p className="text-gray-500 text-sm mt-2">Cached at: {profile.timestamp}</p>
             </div>
 
@@ -60,8 +73,6 @@ const UserProfile = () => {
             >
               🔄 Refresh Profile
             </button>
-
-            
           </>
         )}
       </div>
