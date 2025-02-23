@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { cache } from "react";
 
-//@ts-ignore
+// @ts-expect-error
 export const fetchUserProfile = cache(async (): Promise<{ data; timestamp: string; error?: string }> => {
   try {
     console.log("Fetching new user profile...");
