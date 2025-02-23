@@ -1,65 +1,53 @@
 "use client";
-import React, { useState, useTransition } from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
 import Loader from "@/Components/Loader";
 
 const Page = () => {
   const router = useRouter();
-  const [isPending, startTransition] = useTransition(); // Detects if navigation is in progress
 
-  const handleTask1 = () => {
-    startTransition(() => {
-      router.push("/blogs");
-    });
-  };
 
-  const handleTask2 = () => {
-    startTransition(() => {
-      router.push("/profile");
-    });
-  };
-
-  const handleTask3 = () => {
-    startTransition(() => {
-      router.push("/todo");
-    });
-  };
-
-  const handleTask4 = () => {
-    startTransition(() => {
-      router.push("/products");
-    });
+  const handleTask = async (task: string, path: string) => {
+    router.push(path);
   };
 
   return (
     <div className="bg-black h-screen w-screen gap-6 flex flex-col justify-center items-center text-white font-semibold">
       <h1 className="text-2xl">Tasks</h1>
+
       <div
-        onClick={handleTask1}
-        className="bg-blue-600 py-2 px-4 rounded-lg cursor-pointer flex justify-center items-center min-w-[100px] min-h-[40px]"
+        onClick={() => handleTask("task1", "/blogs")}
+        className="bg-blue-600 py-2 px-4 rounded-lg cursor-pointer "
       >
-        {isPending ? <Loader /> : "Task 1"}
+        Task 1
       </div>
 
       <div
-        onClick={handleTask2}
+        onClick={() => handleTask("task2", "/profile")}
         className="bg-blue-600 py-2 px-4 rounded-lg cursor-pointer"
       >
-        {isPending ? <Loader /> : "Task 2"}
+        Task 2
       </div>
 
       <div
-        onClick={handleTask3}
+        onClick={() => handleTask("task3", "/todo")}
         className="bg-blue-600 py-2 px-4 rounded-lg cursor-pointer"
       >
-        {isPending ? <Loader /> : "Task 3"}
+        Task 3
       </div>
 
       <div
-        onClick={handleTask4}
+        onClick={() => handleTask("task4", "/products")}
         className="bg-blue-600 py-2 px-4 rounded-lg cursor-pointer"
       >
-        {isPending ? <Loader /> : "Task 4"}
+        Task 4
+      </div>
+
+      <div
+        onClick={() => handleTask("task5", "/cache")}
+        className="bg-blue-600 py-2 px-4 rounded-lg cursor-pointer"
+      >
+        Task 5
       </div>
     </div>
   );
