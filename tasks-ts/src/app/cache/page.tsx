@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { cache } from "react";
 
-// @ts-expect-error
+// @ts-expect-error: Ignoring type issue for cache function
 export const fetchUserProfile = cache(async (): Promise<{ data; timestamp: string; error?: string }> => {
   try {
     console.log("Fetching new user profile...");
-    const response = await axios.get( "https://tasksbybeast.vercel.app/api/profile"); 
+    const response = await axios.get( "http://localhost:3000/api/profile"); 
     return { data: response.data, timestamp: new Date().toLocaleTimeString() }; // Store timestamp
   } catch (error) {
     console.error("Error fetching profile:", error);
