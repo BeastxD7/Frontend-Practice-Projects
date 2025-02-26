@@ -26,14 +26,13 @@ const Page = () => {
     setName(name);
   }, []);  
   
-
   const handleSend = async () => {
     if (!inputValue) return;
 
     setLoading(true);
     const userMessage: IMessage = { message: inputValue, type: "you" };
     setMessages((prev) => [...prev, userMessage]);
-    let prompt = inputValue;
+    const prompt = inputValue;
     setInputValue("");
 
     const loadingMessage: IMessage = {
