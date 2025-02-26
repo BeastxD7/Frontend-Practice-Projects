@@ -26,7 +26,6 @@ const Page = () => {
     setName(name);
   }, []);  
   
-
   const handleSend = async () => {
     if (!inputValue) return;
 
