@@ -1,6 +1,6 @@
 import { Lightbulb, Compass, SquarePen, PartyPopper } from 'lucide-react';
 import React from 'react';
-import { color, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const cardVariants = {
   hover: { scale: 1.05, backgroundColor: '#374151', boxShadow: '0 20px 50px rgba(8, 112, 184, 0.3)' },

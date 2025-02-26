@@ -7,8 +7,6 @@ import { gemini } from "./utils/Gemini";
 import MainCards from "@/Components/MainCards";
 import UsernameModal from "@/Components/UsernameModal";
 
-
-
 const Page = () => {
   interface IMessage {
     message: string;
@@ -21,11 +19,13 @@ const Page = () => {
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [loading, setLoading] = useState(false);
-  const [name, setName] = useState<String | null>("")
+  const [name, setName] = useState<string | null>("")
 
-  useEffect(()=> {
-    setName(localStorage.getItem("username"));
-  },[localStorage.getItem("username")])
+  useEffect(() => {
+    const name = localStorage.getItem("username") || "User";
+    setName(name);
+  }, []);  
+  
 
   const handleSend = async () => {
     if (!inputValue) return;
@@ -45,7 +45,7 @@ const Page = () => {
 
     const response = await gemini(prompt);
 
-    // Replace the skeleton with the actual AI response
+
     setMessages((prev) =>
       prev.map((msg) =>
         msg.loading
@@ -81,7 +81,7 @@ const Page = () => {
       {/* Main Heading */}
       <div className={messages.length <= 0 ? "flex flex-col gap-10" : "hidden"}>
         <h1 className="text-5xl mb-4 text-center font-semibold bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">
-          Hello, {name}.
+          Hello, {name}
         </h1>
         <MainCards setFn={setInputValue} />
       </div>
