@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -11,57 +9,102 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #0d0d0d;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+    background-color: #111;
+    color: aliceblue;
 }
 
-/* Full-Width Linear Section */
-.linear-section {
-    position: relative;
+header{
+    color: aliceblue;
     width: 100%;
-    height: 150px;
-    background: linear-gradient(135deg, #ff0055, #5500ff);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+}
+
+
+
+.scroll-line {
+    color: gray; /* Initial gray color */
+    opacity: 0.2; /* Low opacity initially */
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, white 100%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.scroll-line.visible {
+    opacity: 1; /* Full opacity */
+    background-position: 0% 0;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --switch-bg: #ddd;
+    --switch-circle: #ffffff;
+}
+
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --switch-bg: #444;
+    --switch-circle: #f0f0f0;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s ease-in-out;
+}
+
+/* Theme Switch */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 25px;
+    display: inline-block;
     cursor: pointer;
-    overflow: visible; /* Allows the hidden card to be seen */
 }
 
-/* Hidden Card (Appears on Right Side with Scaling) */
-.hidden-card {
-    position: absolute;
-    margin-right: 5rem ;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%) scale(0); /* Start fully hidden */
-    width: 280px;
-    height: 280px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(255, 0, 85, 0.3);
-    opacity: 0;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-in;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.theme-switch input {
+    display: none;
 }
 
-/* Image inside the hidden card */
-.hidden-card img {
+.switch {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+    background: var(--switch-bg);
+    border-radius: 25px;
+    position: relative;
+    transition: 0.3s;
 }
 
-/* Hover Effect: Reveal Hidden Card with Scaling */
-.linear-section:hover .hidden-card {
-    transform: translateY(-50%) scale(1);
-    opacity: 1;
+/* Circle Inside */
+.switch::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: var(--switch-circle);
+    border-radius: 50%;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    transition: 0.3s ease-in-out;
 }
+
+/* Toggle Effect */
+input:checked + .switch {
+    background: var(--switch-bg);
+}
+
+input:checked + .switch::before {
+    left: calc(100% - 22px);
+}
+
