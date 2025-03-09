@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0d0d0d;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+}
+
+/* Full-Width Linear Section */
+.linear-section {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(135deg, #ff0055, #5500ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: visible; /* Allows the hidden card to be seen */
+}
+
+/* Hidden Card (Appears on Right Side with Scaling) */
+.hidden-card {
+    position: absolute;
+    margin-right: 5rem ;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) scale(0); /* Start fully hidden */
+    width: 280px;
+    height: 280px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 0, 85, 0.3);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Image inside the hidden card */
+.hidden-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Hover Effect: Reveal Hidden Card with Scaling */
+.linear-section:hover .hidden-card {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+}
